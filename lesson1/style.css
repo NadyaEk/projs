@@ -12,6 +12,9 @@ header {
   height: 50px;
   background-color: #a8a8a8;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 main {
@@ -37,11 +40,13 @@ h3, p {
   padding: 12px 12px;
 }
 
-.cart-button {
+.cart-button,
+.button-buy {
   font-size: 18px;
   padding: 12px;
 }
-.cart-button:hover {
+.cart-button:hover,
+.button-buy:hover {
   background-color: lightgrey;
   color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

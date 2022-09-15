@@ -1,21 +1,24 @@
 'use strict';
 
 const goods = [
-{ title: 'Shirt', price: 150 },
-{ title: 'Socks', price: 50 },
-{ title: 'Jacket', price: 350 },
-{ title: 'Shoes', price: 250 },
+{ id:1, title: 'Shirt', price: 150 },
+{ id:2, title: 'Socks', price: 50 },
+{ id:3, title: 'Jacket', price: 350 },
+{ id:4, title: 'Shoes', price: 250 },
 ];
 
-const renderGoodsItem = (title, price,img = "https://placeimg.com/200/200/people") => {
+const renderGoodsItem = (product,img = "https://placeimg.com/200/200/people") => {
 return `<div class="goods-item">
-  <img src="${img}" alt="clothes">
-  <h3>${title}</h3>
-  <p>${price}</p></div>`;
+          <img src="${img}" alt="clothes">
+          <h3>${product.title}</h3>
+          <p>${product.price}</p>
+          <button class="button-buy">Купить</button>
+        </div>`
 };
 
 const renderGoodsList = (list) => {
-let goodsList = list.map(item => renderGoodsItem(item.title, item.price)).join("");
-document.querySelector('.goods-list').insertAdjacentHTML("beforeend", goodsList);
+// let goodsList = list.map(item => renderGoodsItem(item)).join("");
+document.querySelector('.goods-list').innerHTML =  
+  list.map(item => renderGoodsItem(item)).join("");
 }
 renderGoodsList(goods);
