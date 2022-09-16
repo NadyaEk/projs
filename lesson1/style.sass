@@ -1,0 +1,39 @@
+*
+  margin: 0
+  padding: 0
+
+.center
+  padding-left: calc(50% - 570px)
+  padding-right: calc(50% - 570px)
+
+header
+  height: 50px
+  background-color: #a8a8a8
+  padding: 20px
+  display: flex
+  justify-content: space-between
+  align-items: center
+main
+  margin-top: 20px
+.goods-list
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr 1fr
+  gap: 20px
+.goods-item
+  display: flex
+  flex-direction: column
+  padding: 12px
+  &:hover
+    box-shadow: 0 0 10px rgba(0,0,0,0.5)
+h3,p
+  padding: 12px 12px
+
+.cart-button, 
+.button-buy
+  font-size: 18px
+  padding: 12px
+  &:hover
+    background-color: lightgrey
+    color: white
+    box-shadow: 0 0 10px rgba(0,0,0,0.5)
+
