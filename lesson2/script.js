@@ -42,7 +42,7 @@ class GoodsItem {
   }
 
   getTotalPrice(){
-    return (this.goods.reduce((sum,item) => {return(sum + item.price)},0));
+    return (this.goods.reduce((sum,item) => sum + item.price,0));
   }
 
   }
@@ -102,16 +102,20 @@ class CartList {
     })
     document.querySelector('.cart-header').insertAdjacentText("beforeend", cartList);
   }
-  addToCart(){
+  addGood(){
     // надо проверить, если товар с таким id уже есть в корзине, 
     //то надо просто увеличить количество товара
     // если нет товара, то вызвать метод renderNewCartItem() и добавить элемент
   } 
 
 
-  delFromCart(){}
+  removeGood(){}
     // если количество товара в корзине равно 1, то удалить товар полностью
     // если нет, то уменьшить количество этого товара в корзине
+  
+  changeGood(){}
+  
+
   
   setCartTotal() {
     // размещает итоговую сумму всех товаров в корзине, подсчитывая сумму с
