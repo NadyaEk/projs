@@ -55,7 +55,7 @@ h3, p {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .cart {
