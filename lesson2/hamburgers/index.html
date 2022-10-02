@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburgers</title>
+  <style>
+    fieldset {
+      width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="#">
+    <fieldset>
+      <p>Выберите размер гамбургера</p>
+      <p>
+        <input type="radio" name="size" value="small" data-price="50" data-calories="20" checked>
+        Маленький (50рублей,20калорий).<br>
+        <input type="radio" name="size" value="big" data-price="100" data-calories="40">
+        Большой (100 рублей, 40калорий).<br>
+      </p>
+      <p>Выберите начинку</p>
+      <p>
+        <input type="radio" name="stuffing" value="cheese" data-price="10" data-calories="20" checked>
+        С сыром (+10рублей, +20 калорий) <br>
+        <input type="radio" name="stuffing" value="salad" data-price="20" data-calories="5">
+        С салатом (+20 рублей, +5 калорий). <br>
+        <input type="radio" name="stuffing" value="potato" data-price="15" data-calories="10">
+        С картофелем (+15рублей, +10 калорий) <br>
+      </p>
+
+      <p>Выберите добавки </p>
+      <p>
+        <input type="checkbox" name="topping" value="spice" data-price="15" data-calories="0">
+        приправa (+15 рублей, +0 калорий) <br>
+        <input type="checkbox" name="topping" value="mayo" data-price="20" data-calories="5">
+        майонез (+20 рублей, +5 калорий). <br>
+      </p>
+
+      <p><input type="submit" id="check" value="Рассчитать"></p>
+      <div class="result">
+        Итоговая стоимость: <span id="price">0</span><br>
+        Итоговая калорийность: <span id="calories">0</span>
+      </div>
+    </fieldset>
+  </form>
+  <script>
+    window.addEventListener('load', () => {
+      document.querySelector("#check").addEventListener('click', event => {
+        event.preventDefault();
+        console.log(event);
+        let burger = new Hamburger('size', 'stuffing', 'topping');
+        burger.showResult('#price', '#calories');
+      })
+    })
+
+    class Param {
+      constructor(element) {
+        this.name = element.value;
+        this.price = +element.dataset['price'];
+        this.calories = +element.dataset['calories'];
+      }
+    }
+    class Hamburger {
+      constructor(size, stuffing, topping) {
+        this.size = new Param(this._select(size));
+        this.stuffing = new Param(this._select(stuffing));
+        this.topping = this._getTopping(topping);
+      }
+
+      _select(name) {
+        return document.querySelector(`input[name = ${name}]:checked`);
+      }
+
+      _selectAll(name) {
+        return document.querySelectorAll(`input[name = ${name}]:checked`);
+      }
+
+      _getTopping(name) {
+        let topping = [];
+        this._selectAll(name).forEach(element => {
+          let obj = new Param(element);
+          topping.push(obj);
+        });
+        return topping;
+      }
+
+      _getResult(name) {
+        let sum = this.size[name] + this.stuffing[name];
+        this.topping.forEach(element => sum += +element[name]);
+        return (sum);
+      }
+
+      showResult(id1, id2) {
+        document.querySelector(id1)
+          .innerText = (`${this._getResult('price')} рублей`);
+        document.querySelector(id2)
+          .innerText = (`${this._getResult('calories')} калорий`);
+      }
+    }
+  </script>
+</body>
+
+</html>
