@@ -12,8 +12,10 @@
 <body>
   <header class="center">
     <h2 class="logo">eSHOP</h2>
-    <input type="text" class="goods-search" />
-    <button class="search-button" type="button">&#128269</button>
+    <div class="search">
+      <input type="text" class="search-imput" />
+      <button class="search-button" type="button">&#128269</button>
+    </div>
     <button class="cart-button" type="button">Корзина</button>
     <div class="cart hidden">
       <div class="cart-header">
@@ -22,6 +24,7 @@
         <div>Количество</div>
         <div>Общая стоимость</div>
       </div>
+      <div class="cart-empty hidden">Корзина пуста</div>
       <div class="cart-info"></div>
       <!-- <div class="cart-total">Итого:</div> -->
     </div>

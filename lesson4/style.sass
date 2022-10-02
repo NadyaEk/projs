@@ -34,8 +34,7 @@ input
   width: 200px
 
 .cart-button, 
-.button-buy,
-
+.button-buy
   font-size: 18px
   padding: 12px
   transition: 0.1
@@ -46,6 +45,12 @@ input
 
 .hidden  
   display: none !important
+.search
+  display: flex
+  &-button
+    font-size: 22px
+    padding: 0 10px
+
 .cart
   position: absolute
   top: 100px
@@ -61,6 +66,8 @@ input
     padding-bottom: 12px
     justify-items: start
     font-weight: 600
+  &-empty
+    font-style: italic
   &-total 
     display: flex
     justify-content: flex-end
