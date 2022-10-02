@@ -1,0 +1,73 @@
+*
+  margin: 0
+  padding: 0
+
+.center
+  padding-left: calc(50% - 570px)
+  padding-right: calc(50% - 570px)
+
+header
+  height: 50px
+  background-color: #a8a8a8
+  padding: 20px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  position: relative
+main
+  margin-top: 20px
+.goods-list
+  display: flex
+  justify-content: space-around
+  //display: grid
+  //grid-template-columns: 1fr 1fr 1fr 1fr
+  gap: 20px
+.goods-item
+  display: flex
+  flex-direction: column
+  padding: 12px
+  &:hover
+    box-shadow: 0 0 10px rgba(0,0,0,0.5)
+h3,p,input
+  padding: 12px 12px
+input
+  width: 200px
+
+.cart-button, 
+.button-buy,
+
+  font-size: 18px
+  padding: 12px
+  transition: 0.1
+  &:hover
+    background-color: lightgrey
+    color: white
+    box-shadow: 0 0 10px rgba(0,0,0,0.5)
+
+.hidden  
+  display: none !important
+.cart
+  position: absolute
+  top: 100px
+  right: 10px
+  width: 600px
+  z-index: 3
+  background-color: #ffffff
+  box-shadow: 0 0 10px rgba(0,0,0,0.5)
+  padding: 12px
+  &-header
+    display: grid
+    grid-template-columns: repeat(5,1fr)
+    padding-bottom: 12px
+    justify-items: start
+    font-weight: 600
+  &-total 
+    display: flex
+    justify-content: flex-end
+    align-items: center
+  &-item
+    display: grid
+    grid-template-columns: repeat(5,1fr)
+    justify-items: start
+  &-del
+    padding: 5px
