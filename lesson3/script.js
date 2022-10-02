@@ -34,7 +34,7 @@ class List {
     const block = document.querySelector(this.container);
     for (let el of this.goods) {
       let goodsEl = new this.list[this.constructor.name](el);
-      this.allGoods.push(goodsEl);
+      this.allGoods.push(el);
       block.insertAdjacentHTML('beforeend',goodsEl.render());
     }
     console.log(this.allGoods);
@@ -100,7 +100,7 @@ class CartList extends List {
         .then (data =>{
           if (data.result === 1){
             const elementId = +element.dataset['productid'];
-            let find = this.goods.find(product => product.id_product === elementId);
+            let find = this.allGoods.find(product => product.id_product === elementId);
             if (find) {
               find.quantity++;
               this._changeCart(find);
@@ -111,7 +111,7 @@ class CartList extends List {
                 product_name: element.dataset['name'],
                 quantity: 1
               }
-            this.goods.push(product);
+            this.goods=[product];
             
             this.render();
             }
@@ -124,12 +124,12 @@ class CartList extends List {
       .then (data => {
         if (data.result === 1){
           const elementId = +element.dataset['productid'];
-          let find = this.goods.find(product => product.id_product === elementId);
+          let find = this.allGoods.find(product => product.id_product === elementId);
           if (find.quantity > 1) {
             find.quantity--;
             this._changeCart(find);
           } else {
-            this.goods.splice(this.goods.indexOf(find),1);
+            this.allGoods.splice(this.allGoods.indexOf(find),1);
             document.querySelector(`.cart-item[data-productid = "${elementId}"]`).remove();
           }
         } else { alert('Доступ запрещен!')}
