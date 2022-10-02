@@ -37,7 +37,7 @@ class List {
       this.allGoods.push(el);
       block.insertAdjacentHTML('beforeend',goodsEl.render());
     }
-    console.log(this.allGoods);
+    //console.log(this.allGoods);
   }
 
   getTotalPrice(){
@@ -112,8 +112,8 @@ class CartList extends List {
                 quantity: 1
               }
             this.goods=[product];
-            
-            this.render();
+
+            this.render();  
             }
           } else { alert('Доступ запрещен!')}
         }) 
@@ -129,8 +129,6 @@ class CartList extends List {
             find.quantity--;
             this._changeCart(find);
           } else {
-
-            
             this.allGoods.splice(this.allGoods.indexOf(find),1);
             document.querySelector(`.cart-item[data-productid = "${elementId}"]`).remove();
           }
