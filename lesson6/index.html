@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>eShop</title>
+</head>
+
+<body>
+  <div id="app">
+    <header class="center">
+      <h2 class="logo">eSHOP</h2>
+      <search :searchString="searchString"></search>
+      <!-- <form class="search" @submit.prevent="filterGoods">
+        <input type="text" class="search-imput" v-model="searchString">
+        <button class="search-button" type="submit">&#128269</button>
+      </form> -->
+      <!-- Так тоже работает! 
+        <div class="search">
+        <input type="text" class="search-imput" v-model="searchString">
+        <button class="search-button" type="button" @click="filterGoods()">&#128269</button>
+      </div> -->
+
+      <cart-list :items="cartGoods" :show="show"></cart-list>
+
+      <button class="cart-button" type="button" @click="show=!show">Корзина</button>
+      <!-- <div class="cart" v-show="show">
+        <div class="cart-header" v-if="cartGoods.length">
+          <div>Название товара</div>
+          <div>Стоимость товара</div>
+          <div>Количество</div>
+          <div>Общая стоимость</div>
+        </div>
+        <div class="cart-empty" v-if="!cartGoods.length">Корзина пуста</div>
+        <div class="cart-info" v-for="item of cartGoods">
+          <div class="cart-item" :key="item.id_product">
+            <div>{{ item.product_name }}</div>
+            <div>{{ item.price }}</div>
+            <div>{{ item.quantity }}</div>
+            <div>{{ item.price*item.quantity }}</div>
+            <button class="cart-del" @click="removeGood(item)">x</button>
+          </div>
+        </div>
+      <div class="cart-total">Итого:</div>
+      </div> -->
+    </header>
+    <main class="center">
+
+      <goods-list :goods="filteredGoods" :img="imgCatalog" @add-good="$parent.addGood"></goods-list>
+
+      <!-- <div class="goods-list">
+        <div class="goods-item" v-for="good in filteredGoods" :key="good.id_product">
+          <img :src=imgCatalog :alt="good.product_name">
+          <h3> {{ good.product_name }}</h3>
+          <p> {{ good.price }} </p>
+          <button class="button-buy" @click="addGood(good)">Купить</button>`
+        </div>
+      </div> -->
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="searchComp.js"></script>
+  <script src="goodComp.js"></script>
+  <script src="cartComp.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
