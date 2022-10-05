@@ -3,7 +3,14 @@ Vue.component('search',{
   
   template: 
     `<form class="search" @submit.prevent="$parent.filterGoods">
-        <input type="text" class="search-imput" v-model="$parent.searchString">
+        <input type="text" class="search-input" v-model="$parent.searchString">
         <button class="search-button" type="submit">&#128269</button>
-    </form>`
+    </form>
+    `
+    // `
+    // <div class="search">
+    //     <input type="text" class="search-input" v-model="$parent.search-string">
+    //     <button class="search-button" type="button" @click="$parent.filterGoods">&#128269</button>
+    //   </div>
+    // `
 });

@@ -13,9 +13,9 @@
   <div id="app">
     <header class="center">
       <h2 class="logo">eSHOP</h2>
-      <search :searchString="searchString"></search>
+      <search :search-string="searchString"></search>
       <!-- <form class="search" @submit.prevent="filterGoods">
-        <input type="text" class="search-imput" v-model="searchString">
+        <input type="text" class="search-input" v-model="searchString">
         <button class="search-button" type="submit">&#128269</button>
       </form> -->
       <!-- Так тоже работает! 
@@ -24,7 +24,7 @@
         <button class="search-button" type="button" @click="filterGoods()">&#128269</button>
       </div> -->
 
-      <cart-list :items="cartGoods" :show="show"></cart-list>
+      <cart-list :items="cartGoods" :show="show" @remove-good="removeGood"></cart-list>
 
       <button class="cart-button" type="button" @click="show=!show">Корзина</button>
       <!-- <div class="cart" v-show="show">
@@ -48,8 +48,9 @@
       </div> -->
     </header>
     <main class="center">
-
-      <goods-list :goods="filteredGoods" :img="imgCatalog" @add-good="$parent.addGood"></goods-list>
+      <goods-list :goods="filteredGoods" :img="imgCatalog" @add-good="$addGood">
+      </goods-list>
+      <!-- <goods-list :goods="filteredGoods" :img="imgCatalog" @add-good="  addGood"></goods-list> -->
 
       <!-- <div class="goods-list">
         <div class="goods-item" v-for="good in filteredGoods" :key="good.id_product">
@@ -62,10 +63,12 @@
     </main>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
   <script src="searchComp.js"></script>
   <script src="goodComp.js"></script>
   <script src="cartComp.js"></script>
-  <script src="main.js"></script>
+
+
 </body>
 
 </html>
