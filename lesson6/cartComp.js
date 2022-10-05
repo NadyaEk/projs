@@ -1,7 +1,3 @@
-'use strict';
-
-
-
 Vue.component('cart-list', {
   props: ['items','show'],
   
@@ -16,7 +12,7 @@ Vue.component('cart-list', {
         </div>
         <div class="cart-empty" v-if="!items.length">Корзина пуста</div>
         <div class="cart-info">
-          <cart-item class="cart-item" v-for="item of items"></cart-item>
+          <cart-item class="cart-item" :item="item" v-for="item of items"></cart-item>
         </div>
       </div>
   `
