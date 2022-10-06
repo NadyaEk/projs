@@ -1,0 +1,12 @@
+[
+  {
+    "id_product": 125,
+    "product_name": "Планшет",
+    "price": 20600
+  },
+  {
+    "id_product": 458,
+    "product_name": "Коврик",
+    "price": 300
+  }
+]

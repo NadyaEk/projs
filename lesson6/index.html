@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>eShop</title>
+</head>
+
+<body>
+  <div id="app">
+    <header class="center">
+      <h2 class="logo">eSHOP</h2>
+      <search :search-string="searchString"></search>
+
+      <cart-list :items="cartGoods" :show="show" @remove-good="removeGood"></cart-list>
+
+      <button class="cart-button" type="button" @click="show=!show">Корзина</button>
+
+    </header>
+    <main class="center">
+      <goods-list :goods="filteredGoods" :img="imgCatalog" @add-good="addGood">
+      </goods-list>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+  <script src="searchComp.js"></script>
+  <script src="goodComp.js"></script>
+  <script src="cartComp.js"></script>
+  <script src="main.js"></script>
+
+</body>
+
+</html>
